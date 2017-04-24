@@ -1,9 +1,13 @@
-ctiondef organize_data():
+import pandas as pd
+import forward_selection_viz
+
+def organize_data():
     """
     Load, organize, and normalize data
     """
     df = pd.read_csv('data/2017.csv')
-    df.drop(['Arena', 'Rk', 'L', 'PL', 'PW', 'W', 'SOS', 'SRS', 'ORtg', 'DRtg', 'Attendance'], 1, inplace=True)
+    df.drop(['Arena', 'Rk', 'L', 'PL', 'PW', 'W', 'SOS', 'SRS', 'ORtg', 'DRtg', 'Attendance'],
+            1, inplace=True)
     df = df.set_index('Team')
     y = df['MOV']
     df = (df - df.mean()) / df.std()
@@ -12,6 +16,6 @@ ctiondef organize_data():
 
 if __name__ == '__main__':
     X, y = organize_data()
-    iterative_forward_select(X, y, depth=5)
+    forward_selection_viz.iterative_forward_select(X, y, depth=5)
 
 
