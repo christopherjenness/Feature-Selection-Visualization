@@ -25,4 +25,4 @@ It looks like eFG% (effective field goal %) was the most predictive variable.  N
 
 ![2eFG](plots/2_eFG%25.png)
 
-The program iterats until it reaches a user specified depth.
+The program iterates until it reaches a user specified depth.
